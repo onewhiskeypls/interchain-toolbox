@@ -1,0 +1,29 @@
+.dialog {
+  z-index: 100;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.buttons sl-button,
+.buttons sl-switch {
+  flex-grow: 1;
+}
+
+.required-input {
+  outline: 1px solid slategray;
+}
+
+.error {
+  outline: 1px solid red !important;
+  background: rgb(255,240,240);
+}
