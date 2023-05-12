@@ -5,6 +5,8 @@ import { chains } from "chain-registry";
 import { useEffect, useState } from "react";
 
 import { fromBech32, toBech32 } from "@cosmjs/encoding";
+import bech32 from "bech32";
+
 import { AddressComponent } from "./address_component";
 import { Chain } from "@chain-registry/types";
 
@@ -21,6 +23,13 @@ export const BechConverter = () => {
             let newAddresses: JSX.Element[] = [];
             try {
                 let decoded = fromBech32(fromAddress, Infinity);
+                let words = bech32.toWords(decoded.data);
+                const hexStr = words
+                    .map((x) => x.toString(16).padStart(2, "0"))
+                    .join("");
+
+                console.log(`words: ${words}`);
+                console.log(`hexStr: ${hexStr}`);
 
                 let chainAddresses: Map<string, Chain> = new Map();
 
